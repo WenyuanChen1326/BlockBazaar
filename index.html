@@ -125,7 +125,7 @@
 		</p>
 		<button onclick="location.href='https://github.com/matin-g/Q2-DSC180B-A02'">Github Repo</button>
 		<button onclick="location.href='https://github.com/matin-g/DSC180a-Q1-final-code/blob/main/report.pdf'">Report</button>
-		<button onclick="location.href='https://github.com/matin-g/DSC180a-Q1-final-code/blob/main/report.pdf'">BlockMart</button>
+		<button onclick="location.href='http://blockbazaar.net'" target="_blank">BlockBazaar</button>
 
 		
 	</header>
@@ -142,6 +142,97 @@
 
 	<section id="infrastructure">
 		<h2>Infrastructure</h2>
+				<!DOCTYPE html>
+		<meta charset="utf-8">
+
+		<!-- Load d3.js -->
+		<script src="https://d3js.org/d3.v4.js"></script>
+
+		<!-- Create a div where the graph will take place -->
+		<div id="my_dataviz"></div>
+		<script>
+
+			// set the dimensions and margins of the graph
+			var width = 780
+			var height = 600
+			
+			// append the svg object to the body of the page
+			var svg = d3.select("#my_dataviz")
+			.append("svg")
+				.attr("width", 780)
+				.attr("height", 600)
+			
+			// create dummy data -> just one element per circle
+			var data = [{ "name": "Remix-Ethereum" ,"url": "http://blockbazaar.net/homePage.html"}, 
+						{ "name": "MetaMask Wallet", "url": "http://blockbazaar.net/homePage.html" },
+						{ "name": "Goerli TestNet" ,"url": "http://blockbazaar.net/homePage.html"},
+						{ "name": "Etherscan.io" , 'url': "http://blockbazaar.net/homePage.html"}, 
+						{ "name": "Javascript" ,"url": "http://blockbazaar.net/homePage.html"},
+						{ "name": "Parse", 'url': "http://blockbazaar.net/homePage.html" }]
+			
+			// Initialize the circle: all located at the center of the svg area
+			var group = svg.append("g");
+			
+			var node = group.selectAll("circle")
+			.data(data)
+			.enter()
+			.append("circle")
+				.attr("r", 70)
+				.attr("cx", width / 2)
+				.attr("cy", height / 2)
+				.style("fill", "#69b3a2")
+				.style("fill-opacity", 0.3)
+				.attr("stroke", "#69a2b2")
+				.style("stroke-width", 4);
+			
+			var label = group.selectAll("text")
+			.data(data)
+			.enter()
+			.append("text")
+				.attr("text-anchor", "middle")
+				.attr("font-size", "20px")
+				.attr("fill", "black")
+				.text(function(d) { return d.name; });
+			
+			// Add event listeners to the circles
+			node.on("mouseover", function() {
+				d3.select(this)
+					.transition()
+					.duration(200)
+					.attr("r", 90)
+					.style("fill-opacity", 0.6)
+				})
+				.on("mouseout", function() {
+				d3.select(this)
+					.transition()
+					.duration(200)
+					.attr("r", 70)
+					.style("fill-opacity", 0.3)
+				});
+			label.on("click", function(d) {
+				window.open(d.url);
+			})
+			
+			// Features of the forces applied to the nodes:
+			var simulation = d3.forceSimulation()
+				.force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
+				.force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
+				.force("collide", d3.forceCollide().strength(.01).radius(80).iterations(1)) // Force that avoids circle overlapping
+			
+			// Apply these forces to the nodes and update their positions.
+			// Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
+			simulation
+				.nodes(data)
+				.on("tick", function(d){
+				node
+					.attr("cx", function(d){ return d.x; })
+					.attr("cy", function(d){ return d.y; });
+				label
+					.attr("x", function(d) { return d.x; })
+					.attr("y", function(d) { return d.y + 5; });
+				});
+			</script>
+	
 		<p>Remix-Ethereum: Remix-Ethereum is where we write our smart contract code. From Remix-Ethereum, we are able to deploy our smart contract. Any changes in code must be updated here and redeployed.
 			<br> MetaMask Wallet: The buyer/seller must connect to their MetaMask wallet (or a similar crypto currency wallet), in order to utilize the smart contract, as the currency (Ether) is contained in the MetaMask wallet. The MetaMask wallet is also used for its unique ID (public key) to recognize an account (unique identifier for security purposes such as verifying sufficient funds). 
 			<br>Goerli Test Network: This is the network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether. We use a test network and test Ethereum due to the expense of using actual Ethereum for contract deployment and testing. 
