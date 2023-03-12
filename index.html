@@ -29,7 +29,7 @@
 
 		/* Styling for header */
 		header {
-			background-color: #333;
+			background-color: #736d6d; /*#333*/
 			color: white;
 			text-align: center;
 			padding: 30px;
@@ -132,7 +132,7 @@
 	</nav>
 
 	<header>
-		<img src="assets/BB_side2.png" alt="Logo Placeholder" class="logo">
+		<img src="assets/BLOCK BAZAAR SIDE TO SIDE 1.png" alt="Logo Placeholder" class="logo">
 		
 		<h2>
 			The Future of E-Commerce</h2>
@@ -150,10 +150,10 @@
 
 	<section id="introduction">
 		<h2>Introduction</h2>
-		<p>The emergence of blockchain technology has increased possibilities of decentralization in many industries, one of which is the online marketplace and escrow system. Currently, online marketplace exchanges like Ebay require the private information of users, a cut of the transaction’s profits ranging from 0.5% to 15% of the total amount of the sale, and are not very resistant to online faults and attacks. All of these pose risks to buyers and sellers while also costing sellers and buyers more money. However, a decentralized, Ethereum based escrow system would only require one’s public wallet address and negligible gas fees instead of a substantial portion of the seller’s profits and their sensitive information. Trusted third-party firms such as Ebay were critical prior to blockchain technology and smart contracts since they address the issue of trust between unknown buyers and sellers in a digital marketplace by acting as mediators. However, with smart contracts, open source code may replace such firms as mediators, while also eliminating the need for trust between transactors, but without the aforementioned drawbacks of centralized third parties. Additionally, decentralized platforms are more tolerant to faults and more resistant to attacks, making them a better alternative in many aspects than traditional online marketplace and escrow platforms. 
-			<br>A decentralized escrow smart contract greatly reduces the need for human interaction and minimizes the risk of litigation, in turn reducing costs as well. Via smart contract code, users may have more trust and sense of reliability, as smart contracts are open source and transparent, unlike third party firms that subject their users to rely on often obscure and undisclosed methods. Thus, by deploying a smart contract through the Ethereum network (Goerli test Ethereum network) using blockchain technology, buyers and sellers may interact with the contract through actions such as making deposits to initiate a transaction, canceling transactions, confirming transactions, and sending receipts. Ultimately, we propose that smart contracts are a more viable option than third party arbiters for a trustless marketplace exchange, since our smart contract will securely hold funds until the item is received by the buyer and all conditions of the smart contract are met. Using an escrow mechanism that requires buyers and sellers to make double deposits, creates a trustless system since the extra deposit locked in the contract acts as a collateral, giving the transactors a strong incentive to complete the transaction.            <br>In coordination with our smart contract, our application will include a user friendly front end that will make it easy for buyers and sellers to complete transactions.
-						<br>The smart contract process combined with our user friendly front end web application will provide users with all of the aforementioned benefits of blockchain technology in an efficient and convenient manner.
-						</p>
+		<p>The emergence of blockchain technology has increased possibilities of decentralization in many industries, one of which is the online marketplace and escrow system. A decentralized, Ethereum based escrow system addresses the issue of trust between unknown buyers and sellers in a digital marketplace by acting as a mediator, through the use of smart contracts, removing the need for human interaction and extra costs while also protecting user privacy in the process. Via smart contract code, users may have more trust and a greater sense of reliability, as smart contracts are open source and transparent, unlike third party firms that subject their users to rely on often obscure and undisclosed methods. Using an escrow mechanism that requires buyers and sellers to make double deposits, creates a trust-less system since the contract securely holds all of the funds and locks the extra deposit in the contract, acting as a collateral and giving the transactors a strong incentive to complete the transaction.
+			In coordination with our smart contract, our application includes a user friendly front end that makes it easy for buyers and sellers to complete transactions, while also providing users with all of the aforementioned benefits of blockchain technology in an efficient and convenient manner.
+								</p>
+		
 			
 		<a href="#top">Back to top</a>
 	</section>
@@ -252,23 +252,26 @@
 				});
 			</script>
 	
-		<p>Remix-Ethereum: Remix-Ethereum is where we write our smart contract code. From Remix-Ethereum, we are able to deploy our smart contract. Any changes in code must be updated here and redeployed.
-			<br> MetaMask Wallet: The buyer/seller must connect to their MetaMask wallet (or a similar crypto currency wallet), in order to utilize the smart contract, as the currency (Ether) is contained in the MetaMask wallet. The MetaMask wallet is also used for its unique ID (public key) to recognize an account (unique identifier for security purposes such as verifying sufficient funds). 
-			<br>Goerli Test Network: This is the network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether. We use a test network and test Ethereum due to the expense of using actual Ethereum for contract deployment and testing. 
-			<br>Etherscan.io: We now use etherscan.io as a dashboard to monitor active contracts. Previously, prior to our front end, this was also where we run the smart contract, verify it (ensuring the bytecode for contract execution is the same as when it was deployed), publish it, read from it, write to it, and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io just for monitoring.  
-			<br>Javascript: JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
-			<br>Parse: Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data. We are using a NoSQL database via Parse using MongoDB that contains entries for each user. It’s used to record user information necessary to complete a transaction such as buyer wallet address, item contract address,quantity to purchase, etc. One thing to note is that there is no private information stored except for the buyer's shipping address that is also hidden in the database. 
-			</p>
+	<p>Remix-Ethereum: Remix-Ethereum is where we write and deploy our smart contract code.
+		<br> <br> MetaMask Wallet: The buyer/seller must connect to their MetaMask wallet, in order to utilize the smart contract, as the currency (Ether) and unique ID (public key) are contained in the MetaMask wallet.
+		<br><br> Goerli Test Network: This is the test network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether.
+		<br><br> Etherscan.io: Prior to the development of our front end, this was the tool we used to run the smart contract and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io as a dashboard to monitor active contracts.  
+		<br><br> Javascript: JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
+		<br><br> Parse: Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data necessary to complete a transaction. Crucially, no private information is stored here except for the buyer's shipping address that is also hidden in the database. 
+		</p>
 		<a href="#top">Back to top</a>
 	</section>
 
 	<section id="method">
 		<h2>Methods</h2>
-		<p>Our online escrow marketplace is ran through a smart contract via the Remix Ethereum IDE, and in order to understand the process of executing our smart contract,  it is crucial to distinguish between some terminology. Each party in our escrow system will have their own MetaMask wallet, which contains their Ether and their unique wallet address, which is necessary for identifying the selling party and the buying party. For the purposes of our sample, we have two metamask wallet accounts which each represent a party in our sample transaction. Henceforth, we will refer to the purchasing party’s MetaMask account as the “buyer”, or the “buyer’s account” and the selling party’s account as the “seller”, or the “seller’s account”. At the moment, our smart contract exists on the Remix IDE and on the Goerli test Ethereum network (due to the high cost of deploying and testing with actual Ethereum, although once our protocol is finalized, we will deploy on the actual Ethereum Network with a more optimal frontend that will be established in the future). The transaction must be commenced from the point of view of the seller. The seller can deploy the purchase.sol file (the file of our smart contract) via our front end website, with the necessary Ether cost attached to it (twice the product amount for x items), to cover two times the transaction costs for escrow (not including the gas fee). For example, if the seller sells ten items, the Ether cost attached will be twice the total amount of the ten items. The smart contract is then documented on the etherscan website for the buyer and seller to monitor.  Next,  they must set values for the item_price_in_ETH, item_quantity, item_name, item_details, item_description which will be passed into respective read only functions that may be utilized by the buyer before confirming purchase.
-			<br>
-			
-			Now that the seller has put the smart contract officially in motion, two times the total product price is held in the contract and a buyer must make the next step. However, if a suitable buyer is not found, the seller has the ability to terminate the contract and this will refund their Ether deposited in the contract. The transaction process is secured by the buyer states, which tells us which stage of the contract the buyer is in. The contract tracks the transaction process with threebuyer states (Paid, Shipped, and Received) and the strict buyer state check before each step ensures the process runs smoothly and efficiently. Once buyers confirm their purchase and deposit two times the transaction amount into the smart contract, their state becomes “paid” in the system. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. At this point, the buyer’s MetaMask account is connected to the smart contract and recognized as the purchaser, by confirming the purchase. Now, the escrows for both buyer and seller are locked in the contract , as an agreement is being initiated between the two acknowledged parties. Then, the seller can set the “Paid” buyer state to “Shipped” once he ships the item. The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon. Thus, upon receipt of the purchased item, the buyer, who is in the “Shipped” state, will confirm that they have received the purchase, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this, the buyer state becomes “Received” and gets removed from the buyer hashmap and indicated by our parse database as “completed” buyer. This means the buyer no longer exists in the smart contract. Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
-<p>			
+		<p>At the moment, our smart contract exists on the Remix IDE and on the Goerli test Ethereum network (due to the high cost of deploying and testing with actual Ethereum, although once our protocol is finalized, we will deploy on the actual Ethereum Network. The transaction must be commenced from the point of view of the seller. 
+<br> 
+			1- The seller deploys the smart contract via our front end website, with the necessary Ether cost attached to it and sets data on the item’s cost, quantity, etc. The smart contract is then documented on the etherscan website for the buyer and seller to monitor. Now that the seller has put the smart contract officially in motion, two times the total product price is held in the contract and a buyer must make the next step. However, if a suitable buyer is not found, the seller has the ability to terminate the contract and this will refund their Ether deposited in the contract. 
+			<br> 2- When they are ready, the buyer confirms their purchase and deposits two times the transaction amount into the smart contract. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. 
+			<br> 3- At this point, the buyer’s MetaMask account is connected to the smart contract and recognized as the purchaser, by confirming the purchase. The seller then ships the item to the buyer. 
+			<br> 4- The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this transaction, the buyer is removed from the smart contract. 
+			<br> 5- Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
+			<p> 
 		<a href="#top">Back to top</a>
 	</section>
 
@@ -283,3 +286,4 @@
 		<p>[Insert text here]</p>
 		<a href="#top">Back to top</a>
 	</section>
+
