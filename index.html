@@ -2,6 +2,7 @@
 <html>
 <head>
 	<!-- <title>BlockBazaar - The Future of E-Commerce</title> -->
+	
 	<style>
 		/* Styling for navigation bar */
 		nav {
@@ -56,6 +57,16 @@
 		@keyframes slideIn {
 			from { opacity: 0; transform: translateX(-100px); }
 			to { opacity: 1; transform: translateX(0px); }
+		}
+
+		a {
+		color: white; /* light blue color */
+		text-decoration: none; /* remove underline */
+		}
+
+		a:hover {
+		color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
 		}
 
 		/* Styling for links within sections */
@@ -171,12 +182,12 @@
 			
 			// create dummy data -> just one element per circle
 			// url need to be changed
-			var data = [{ "name": "Remix-Ethereum" ,"url": "http://blockbazaar.net/homePage.html"}, 
-						{ "name": "MetaMask Wallet", "url": "http://blockbazaar.net/homePage.html" },
-						{ "name": "Goerli TestNet" ,"url": "http://blockbazaar.net/homePage.html"},
-						{ "name": "Etherscan.io" , 'url': "http://blockbazaar.net/homePage.html"}, 
-						{ "name": "Javascript" ,"url": "http://blockbazaar.net/homePage.html"},
-						{ "name": "Parse", 'url': "http://blockbazaar.net/homePage.html" }]
+			var data = [{ "name": "Remix-Ethereum" ,"url": "https://remix-project.org/"}, 
+						{ "name": "MetaMask Wallet", "url": "https://metamask.io" },
+						{ "name": "Goerli TestNet" ,"url": "https://goerli.net/"},
+						{ "name": "Etherscan.io" , 'url': "https://goerli.etherscan.io/"}, 
+						{ "name": "Javascript" ,"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"},
+						{ "name": "Parse", 'url': "https://parseplatform.org" }]
 			
 			// Initialize the circle: all located at the center of the svg area
 			var group = svg.append("g");
