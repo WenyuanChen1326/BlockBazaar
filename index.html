@@ -35,8 +35,8 @@
 			background-color: #a1c2db;
 			color: white;
 			text-align: center;
-			padding: 5px;
-			font-size: 32px;
+			padding: 30px;
+			font-size: 40px;
 			font-family: 'Roboto Condensed', sans-serif;
 			animation: fadeIn 2s ease-in;
 		}
@@ -243,10 +243,10 @@
 .fly-in li {
     display:inline-flex;
 	text-align: center;
-    margin-right: 30px;
-    font-family: sans-serif,helvetica;
-    font-weight: 600;
-    font-size: 36px;
+    margin-right: 10px;
+    font-family:  'Roboto Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 38px;
     color: black;
     opacity: 1;
     transition: all 2.8s cubic-bezier(0.6, -.005, 0.32, 1.75);
@@ -293,6 +293,24 @@
 .fly-in.hidden li:nth-child(13) {
     transform: translateX(20px) translateY(-100px); 
 }
+.fly-in.hidden li:nth-child(14) {
+    transform: translateX(-100px) translateY(-20px); 
+}
+.fly-in.hidden li:nth-child(15) {
+    transform: translateX(-70px) translateY(-200px); 
+}
+.fly-in.hidden li:nth-child(16) {
+    transform: translateX(200px) translateY(70px); 
+}
+.fly-in.hidden li:nth-child(17) {
+    transform: translateX(30px) translateY(200px); 
+}
+.fly-in.hidden li:nth-child(18) {
+    transform: translateX(30px) translateY(-100px); 
+}
+.fly-in.hidden li:nth-child(19) {
+    transform: translateX(100px) translateY(-170px); 
+}
 
 	</style>
 	
@@ -301,9 +319,9 @@
 
 	<nav>
 		<a href="#introduction">About BlockBazaar</a>
-		<a href="#infrastructure">The Tools</a>
-		<a href="#method">The Process</a>
-		<a href="#conclusion">In Conclusion</a>
+		<a href="#infrastructure">Infrastructure</a>
+		<a href="#method">Transaction Process</a>
+		<a href="#conclusion">Conclusion</a>
 		<a href="#demo">BlockBazaar Demo</a>
 	</nav>
 
@@ -327,22 +345,26 @@
 
 	<section id="introduction">
 
-		<br>
-		<br>
 
 		<ul class="fly-in hidden">
-		    <li>I</li>
-		    <li>N</li>
-		    <li>T</li>
-		    <li>R</li>
+		    <li>A</li>
+		    <li>B</li>
 		    <li>O</li>
-		    <li>D</li>
 		    <li>U</li>
-		    <li>C</li>
 		    <li>T</li>
-		    <li>I</li>
+		    <li> </li>
+			<li> </li>
+		    <li>B</li>
+		    <li>L</li>
 		    <li>O</li>
-		    <li>N</li>
+		    <li>C</li>
+		    <li>K</li>
+			<li>B</li>
+		    <li>A</li>
+		    <li>Z</li>
+		    <li>A</li>
+		    <li>A</li>
+			<li>R</li>
 		</ul>
 
 		<div class="image-container">
@@ -546,27 +568,42 @@ $(window).on('scroll', function() {
 
 			</script>
 
-<p> <b>Remix-Ethereum:</b> Remix-Ethereum is where we write and deploy our smart contract code.
-    <br> <br> <b>MetaMask Wallet: </b> The buyer/seller must connect to their MetaMask wallet, in order to utilize the smart contract, as the currency (Ether) and unique ID (public key) are contained in the MetaMask wallet.
-    <br><br>  <b>Goerli Test Network:</b> This is the test network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether.
-    <br><br>  <b>Etherscan.io:</b> Prior to the development of our front end, this was the tool we used to run the smart contract and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io as a dashboard to monitor active contracts.  
-    <br><br>  <b>Javascript:</b> JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
-    <br><br>  <b>Parse:</b> Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data necessary to complete a transaction. Crucially, no private information is stored here except for the buyer's shipping address that is also hidden in the database. 
+<p> <u><strong><span id="remix-link">Remix-Ethereum</span></u>:</strong> Remix-Ethereum is where we write and deploy our smart contract code.
+    <br> <br><u><strong><span id="meta-link">MetaMask Wallet</span></u>:</strong> The buyer/seller must connect to their MetaMask wallet, in order to utilize the smart contract, as the currency (Ether) and unique ID (public key) are contained in the MetaMask wallet.
+    <br><br><u><strong><span id="goerli-link">Goerli Test Network</span></u>:</strong> This is the test network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether.
+    <br><br><u><strong><span id="ether-link">Etherscan.io</span></u>:</strong> Prior to the development of our front end, this was the tool we used to run the smart contract and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io as a dashboard to monitor active contracts.  
+    <br><br><u><strong><span id="js-link">Javascript</span></u>:</strong> JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
+    <br><br><u><strong><span id="parse-link">Parse</span></u>:</strong> Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data necessary to complete a transaction. Crucially, no private information is stored here except for the buyer's shipping address that is also hidden in the database. 
     </p>
 	
+	<br>
+
 
 		<a href="#top" class="top">Back to top</a>
 	</section>
 
 	<section id="method">
 		<ul class="fly-in hidden">
-		    <li>M</li>
-		    <li>E</li>
 		    <li>T</li>
-		    <li>H</li>
-		    <li>O</li>
-		    <li>D</li>
+		    <li>R</li>
+			<li>A</li>
+		    <li>N</li>
+			<li>S</li>
+			<li>A</li>
+			<li>C</li>
+			<li>T</li>
+			<li>I</li>
+			<li>O</li>
+		    <li>N</li>
+		    <li> </li>
+			<li> </li>
+		    <li>P</li>
+		    <li>R</li>
+			<li>O</li>
+			<li>C</li>
+		    <li>E</li>
 		    <li>S</li>
+			<li>S</li>
 		</ul>
 		
 		<div class="image-container1">
@@ -574,14 +611,14 @@ $(window).on('scroll', function() {
 		  </div>
 
           <p>  
-            <b><i> 1- </i></b> The seller deploys the smart contract via our application with the necessary Ether cost attached to it and sets data on the item’s cost, quantity, etc. The smart contract holds the funds and is documented on the etherscan website for the buyer and seller to monitor. 
-           <br><br><i> 2- </i></b>When a buyer is found, they confirm their purchase and deposit two times the transaction amount into the smart contract. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. 
-            <br><br> <b><i>3- </i></b>After confirming their purchase, the buyer’s MetaMask account is automatically connected to the smart contract and recognized as the purchaser. The seller then ships the item to the buyer. 
-            <br> <br><b><i>4- </i></b>The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this transaction, the buyer is removed from the smart contract. 
-            <br> <br><b><i>5- </i></b>Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
+            <strong>1. </strong> The seller deploys the smart contract via our application with the necessary Ether cost attached to it and sets data on the item’s cost, quantity, etc. The smart contract holds the funds and is documented on the etherscan website for the buyer and seller to monitor. 
+           <br><br><strong>2. </strong>When a buyer is found, they confirm their purchase and deposit two times the transaction amount into the smart contract. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. 
+            <br><br><strong>3. </strong>After confirming their purchase, the buyer’s MetaMask account is automatically connected to the smart contract and recognized as the purchaser. The seller then ships the item to the buyer. 
+            <br> <br><strong>4. </strong>The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this transaction, the buyer is removed from the smart contract. 
+            <br> <br><strong>5. </strong>Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
             <p> 
 
-	<center><h3><u>Transasction Execution Process</u></h3></center>
+	<center><h4><b>Contract Execution Logic</b></h4></center>
 	<div class="image-container2">
 		<img src="assets/Simplified_functions.png" alt="Image Description">
 	  </div>
@@ -591,6 +628,10 @@ $(window).on('scroll', function() {
 
 	<section id="conclusion">
 		<ul class="fly-in hidden">
+			<li>I</li>
+		    <li>N</li>
+			<li> </li>
+		    <li> </li>
 		    <li>C</li>
 		    <li>O</li>
 		    <li>N</li>
@@ -608,6 +649,13 @@ $(window).on('scroll', function() {
 
 	<section id="demo">
 		<ul class="fly-in hidden">
+			<li>V</li>
+		    <li>I</li>
+		    <li>D</li>
+		    <li>E</li>
+			<li>O</li>
+		    <li> </li>
+		    <li> </li>
 		    <li>D</li>
 		    <li>E</li>
 		    <li>M</li>
