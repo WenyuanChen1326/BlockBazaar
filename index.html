@@ -72,19 +72,29 @@
 		text-decoration: underline; /* add underline on hover */
 		}
 
-		/* Styling for links within sections */
-		section a {
+		/* .top {
 			color: #333;
 			text-decoration: none;
 			border-bottom: 2px solid #333;
 			transition: border-bottom 0.3s;
 		}
-
-		section a:hover {
+		.top:hover {
 			border-bottom: 2px solid #4CAF50;
+		} */
+
+
+		/* Styling for links within sections */
+		section a {
+			color: #333;
+			text-decoration:underline;
+			/* border-bottom: 2px solid #333;
+			transition: border-bottom 0.3s; */
 		}
 
-		Styling for author
+		/* section a:hover {
+			border-bottom: 2px solid #4CAF50;
+		} */
+
 		 footer {
 			margin-top: 50px;
 			text-align: center;
@@ -166,74 +176,46 @@
 		text-decoration: underline; /* add underline on hover */
 		}
 
-
-		/* .image-container {
-		  position: relative;
-		  height: 0;
-		  overflow: hidden;
-		  padding-top: 66.25%; 
+		.image-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
 		}
 
 		.image-container img {
-		  position: absolute;
-		  top: 0;
-		  left: 0;
-		  width: 100%;
-		  height: 100%;
-		  object-fit: fit;
-		  opacity: 0;
-		  transition: opacity 0.5s ease-in-out;
-		} */
-
-		.image-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.image-container img {
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-}
+		max-width: 70%;
+		max-height: 70%;
+		object-fit: contain;
+		}
 
 
-.image-container1 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+		.image-container1 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		}
 
-.image-container1 img {
-  max-width: 70%;
-  max-height: 70%;
-  object-fit: contain;
-}
+		.image-container1 img {
+		max-width: 70%;
+		max-height: 70%;
+		object-fit: contain;
+		}
 
-.image-container2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
+		.image-container2 {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		}
 
-.image-container2 img {
-  max-width: 60%;
-  max-height: 60%;
-  object-fit: contain;
-}
+		.image-container2 img {
+		max-width: 60%;
+		max-height: 60%;
+		object-fit: contain;
+		}
 
-
-
-
-
-/*		body {
-    margin: 0;
-    padding: 0;
-    background: #0e0e0e;
-}*/
 .text{
     text-align: center;
     color: black;
@@ -563,7 +545,7 @@ $(window).on('scroll', function() {
 			<br><br><u><strong><span id="js-link">Javascript</span></u> :</strong> JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
 			<br><br><u><strong><span id="js-link">Parse</span></u> :</strong> Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data. We are using a NoSQL database via Parse using MongoDB that contains entries for each user. It’s used to record user information necessary to complete a transaction such as buyer wallet address, item contract address,quantity to purchase, etc. One thing to note is that there is no private information stored except for the buyer's shipping address that is also hidden in the database. 
 			</p>
-		<a href="#top">Back to top</a>
+		<a href="#top" class="top">Back to top</a>
 	</section>
 
 	<section id="method">
