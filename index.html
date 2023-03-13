@@ -120,11 +120,11 @@
 			height: auto;
 		}
 
-		.image-container {
+		/* .image-container {
 		  position: relative;
 		  height: 0;
 		  overflow: hidden;
-		  padding-top: 66.25%; /* 16:9 aspect ratio */
+		  padding-top: 66.25%; 
 		}
 
 		.image-container img {
@@ -136,7 +136,51 @@
 		  object-fit: fit;
 		  opacity: 0;
 		  transition: opacity 0.5s ease-in-out;
-		}
+		} */
+
+		.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-container img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+
+.image-container1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-container1 img {
+  max-width: 70%;
+  max-height: 70%;
+  object-fit: contain;
+}
+
+.image-container2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.image-container2 img {
+  max-width: 60%;
+  max-height: 60%;
+  object-fit: contain;
+}
+
+
+
+
 
 /*		body {
     margin: 0;
@@ -449,11 +493,21 @@ $(window).on('scroll', function() {
 		    <li>D</li>
 		    <li>S</li>
 		</ul>
+		
+		<div class="image-container1">
+			<img src="assets/dd.png" alt="Image Description">
+		  </div>
+
 		<p>Our online escrow marketplace is ran through a smart contract via the Remix Ethereum IDE, and in order to understand the process of executing our smart contract,  it is crucial to distinguish between some terminology. Each party in our escrow system will have their own MetaMask wallet, which contains their Ether and their unique wallet address, which is necessary for identifying the selling party and the buying party. For the purposes of our sample, we have two metamask wallet accounts which each represent a party in our sample transaction. Henceforth, we will refer to the purchasing party’s MetaMask account as the “buyer”, or the “buyer’s account” and the selling party’s account as the “seller”, or the “seller’s account”. At the moment, our smart contract exists on the Remix IDE and on the Goerli test Ethereum network (due to the high cost of deploying and testing with actual Ethereum, although once our protocol is finalized, we will deploy on the actual Ethereum Network with a more optimal frontend that will be established in the future). The transaction must be commenced from the point of view of the seller. The seller can deploy the purchase.sol file (the file of our smart contract) via our front end website, with the necessary Ether cost attached to it (twice the product amount for x items), to cover two times the transaction costs for escrow (not including the gas fee). For example, if the seller sells ten items, the Ether cost attached will be twice the total amount of the ten items. The smart contract is then documented on the etherscan website for the buyer and seller to monitor.  Next,  they must set values for the item_price_in_ETH, item_quantity, item_name, item_details, item_description which will be passed into respective read only functions that may be utilized by the buyer before confirming purchase.
 			<br>
 			
 			Now that the seller has put the smart contract officially in motion, two times the total product price is held in the contract and a buyer must make the next step. However, if a suitable buyer is not found, the seller has the ability to terminate the contract and this will refund their Ether deposited in the contract. The transaction process is secured by the buyer states, which tells us which stage of the contract the buyer is in. The contract tracks the transaction process with threebuyer states (Paid, Shipped, and Received) and the strict buyer state check before each step ensures the process runs smoothly and efficiently. Once buyers confirm their purchase and deposit two times the transaction amount into the smart contract, their state becomes “paid” in the system. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. At this point, the buyer’s MetaMask account is connected to the smart contract and recognized as the purchaser, by confirming the purchase. Now, the escrows for both buyer and seller are locked in the contract , as an agreement is being initiated between the two acknowledged parties. Then, the seller can set the “Paid” buyer state to “Shipped” once he ships the item. The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon. Thus, upon receipt of the purchased item, the buyer, who is in the “Shipped” state, will confirm that they have received the purchase, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this, the buyer state becomes “Received” and gets removed from the buyer hashmap and indicated by our parse database as “completed” buyer. This means the buyer no longer exists in the smart contract. Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
 <p>			
+
+	<div class="image-container2">
+		<img src="assets/methods.png" alt="Image Description">
+	  </div>
+
 		<a href="#top">Back to top</a>
 	</section>
 
