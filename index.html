@@ -123,6 +123,50 @@
 			height: auto;
 		}
 
+		#remix-link {
+			cursor: pointer;
+		}
+		#remix-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+		#meta-link {
+			cursor: pointer;
+		}
+		#meta-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+		#goerli-link {
+			cursor: pointer;
+		}
+		#goerli-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+		#ether-link {
+			cursor: pointer;
+		}
+		#ether-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+		#js-link {
+			cursor: pointer;
+		}
+		#js-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+		#parse-link {
+			cursor: pointer;
+		}
+		#parse-link:hover {
+			color: #1E90FF; /* darker blue color */
+		text-decoration: underline; /* add underline on hover */
+		}
+
+
 		/* .image-container {
 		  position: relative;
 		  height: 0;
@@ -442,6 +486,7 @@ $(window).on('scroll', function() {
 					.duration(200)
 					.attr("r", 90)
 					.style("fill-opacity", 0.6)
+					.style("cursor", "pointer");
 				})
 				.on("mouseout", function() {
 				d3.select(this)
@@ -449,6 +494,7 @@ $(window).on('scroll', function() {
 					.duration(200)
 					.attr("r", 70)
 					.style("fill-opacity", 0.3)
+					.style("cursor", "default"); 
 				});
 			label.on("click", function(d) {
 				window.open(d.url);
@@ -473,16 +519,49 @@ $(window).on('scroll', function() {
 					.attr("y", function(d) { return d.y + 5; });
 				});
 
+				$(document).ready(function() {
+				$("#remix-link").click(function() {
+					window.location.href = "https://remix-project.org/" ;//"https://remix.ethereum.org/";
+				});
+			});
+
+			$(document).ready(function() {
+				$("#meta-link").click(function() {
+					window.location.href = "https://metamask.io" ;//"https://remix.ethereum.org/";
+				});
+			});
+			$(document).ready(function() {
+				$("#goerli-link").click(function() {
+					window.location.href = "https://goerli.net/" ;//"https://remix.ethereum.org/";
+				});
+			});
+			$(document).ready(function() {
+				$("#ether-link").click(function() {
+					window.location.href = "https://goerli.etherscan.io/" ;//"https://remix.ethereum.org/";
+				});
+			});
+			$(document).ready(function() {
+				$("#js-link").click(function() {
+					window.location.href = "https://developer.mozilla.org/en-US/docs/Web/JavaScript" ;//"https://remix.ethereum.org/";
+				});
+			});
+			$(document).ready(function() {
+				$("#parse-link").click(function() {
+					window.location.href = "https://parseplatform.org" ;//"https://remix.ethereum.org/";
+				});
+			});
+
+
 
 
 			</script>
 	
-		<p><u><strong>Remix-Ethereum</u> :</strong> Remix-Ethereum is where we write our smart contract code. From Remix-Ethereum, we are able to deploy our smart contract. Any changes in code must be updated here and redeployed.
-			<br><br><u><strong>MetaMask Wallet</u> :</strong> The buyer/seller must connect to their MetaMask wallet (or a similar crypto currency wallet), in order to utilize the smart contract, as the currency (Ether) is contained in the MetaMask wallet. The MetaMask wallet is also used for its unique ID (public key) to recognize an account (unique identifier for security purposes such as verifying sufficient funds). 
-			<br><br><u><strong>Goerli Test Network</u> :</strong> This is the network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether. We use a test network and test Ethereum due to the expense of using actual Ethereum for contract deployment and testing. 
-			<br><br><u><strong>Etherscan.io</u> :</strong> We now use etherscan.io as a dashboard to monitor active contracts. Previously, prior to our front end, this was also where we run the smart contract, verify it (ensuring the bytecode for contract execution is the same as when it was deployed), publish it, read from it, write to it, and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io just for monitoring.  
-			<br><br><u><strong>Javascript</u> :</strong> JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
-			<br><br><u><strong>Parse</u> :</strong> Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data. We are using a NoSQL database via Parse using MongoDB that contains entries for each user. It’s used to record user information necessary to complete a transaction such as buyer wallet address, item contract address,quantity to purchase, etc. One thing to note is that there is no private information stored except for the buyer's shipping address that is also hidden in the database. 
+		<p><u><strong><span id="remix-link">Remix-Ethereum</span></u> :</strong> Remix-Ethereum is where we write our smart contract code. From Remix-Ethereum, we are able to deploy our smart contract. Any changes in code must be updated here and redeployed.
+			<br><br><u><strong><span id="meta-link">MetaMask Wallet</span></u> :</strong> The buyer/seller must connect to their MetaMask wallet (or a similar crypto currency wallet), in order to utilize the smart contract, as the currency (Ether) is contained in the MetaMask wallet. The MetaMask wallet is also used for its unique ID (public key) to recognize an account (unique identifier for security purposes such as verifying sufficient funds). 
+			<br><br><u><strong><span id="goerli-link">Goerli Test Network</span></u> :</strong> This is the network where our smart contracts run until our protocol is ready for production. It is a test Ethereum network that replicates the Ethereum Network (EVM - Ethereum Virtual Machine) and uses the test currency we are using, Goerli Test Ether. We use a test network and test Ethereum due to the expense of using actual Ethereum for contract deployment and testing. 
+			<br><br><u><strong><span id="ether-link">Etherscan.io</span></u> :</strong> We now use etherscan.io as a dashboard to monitor active contracts. Previously, prior to our front end, this was also where we run the smart contract, verify it (ensuring the bytecode for contract execution is the same as when it was deployed), publish it, read from it, write to it, and monitor it. However, we can now do all the core functionalities through our front end and we now use etherscan.io just for monitoring.  
+			<br><br><u><strong><span id="js-link">Javascript</span></u> :</strong> JavaScript helped us set up and connect our smart contract to our front end, essentially working as the bridge for our decentralized application. In particular, the Node.js and Express.js packages were used for connecting with MetaMask, our database, and our smart contract code. 
+			<br><br><u><strong><span id="js-link">Parse</span></u> :</strong> Parse is a back end that we used in conjunction with Node.js to set up our database and store all relevant data. We are using a NoSQL database via Parse using MongoDB that contains entries for each user. It’s used to record user information necessary to complete a transaction such as buyer wallet address, item contract address,quantity to purchase, etc. One thing to note is that there is no private information stored except for the buyer's shipping address that is also hidden in the database. 
 			</p>
 		<a href="#top">Back to top</a>
 	</section>
