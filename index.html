@@ -75,7 +75,7 @@
 		text-decoration: underline; /* add underline on hover */
 		}
 
-		/* .top {
+/*		 .top {
 			color: #333;
 			text-decoration: none;
 			border-bottom: 2px solid #333;
@@ -83,21 +83,24 @@
 		}
 		.top:hover {
 			border-bottom: 2px solid #4CAF50;
-		} */
-
+		} 
+*/
 
 		/* Styling for links within sections */
 		section a {
-			color: #063970;
-			/* text-decoration:underline; */
+			color: #043b70;
+			text-decoration: underline; 
 			font-family: 'Roboto Condensed', sans-serif;
-			/* border-bottom: 2px solid #333;
-			transition: border-bottom 0.3s; */
+			font-size: 20px;
+			font-weight: 500;
 		}
 
-		/* section a:hover {
-			border-bottom: 2px solid #4CAF50;
-		} */
+		 section a:hover {
+		 	color: #1E90FF;
+		 	text-decoration:underline; 
+		 	}
+			/*border-bottom: 2px solid #4CAF50;
+		/*} */
 
 		 footer {
 			margin-top: 50px;
@@ -214,12 +217,12 @@
 		justify-content: center;
 		align-items: center;
 		height: 100%;
-		transform: translateX(42px);
+		transform: translateX(28px);
 		}
 
 		.image-container2 img {
-		max-width: 75%;
-		max-height: 75%;
+		max-width: 80%;
+		max-height: 80%;
 		object-fit: contain;
 		}
 
@@ -252,7 +255,108 @@
     font-weight: 1100;
     text-shadow:2px 1px 2px #eee;
 }
-.fly-in{
+.fly-in {
+position: relative;
+text-align: center;
+left: 50%;
+top: 50%;
+list-style: none;
+transform: translateX(-50%) translateY(-50%);
+}
+
+.fly-in li {
+display: inline-flex;
+text-align: center;
+margin-right: 10px;
+font-family: "Roboto Condensed", sans-serif;
+font-weight: 800;
+font-size: 38px;
+color: black;
+opacity: 1;
+transition: all 0.5s ease-in-out;
+}
+
+.fly-in.hidden li {
+opacity: 0;
+}
+
+.fly-in.hidden li:nth-child(1) {
+transform: translateX(50px) translateY(-50px);
+}
+
+.fly-in.hidden li:nth-child(2) {
+transform: translateX(-70px) translateY(70px);
+}
+
+.fly-in.hidden li:nth-child(3) {
+transform: translateX(10px) translateY(-50px);
+}
+
+.fly-in.hidden li:nth-child(4) {
+transform: translateX(-50px) translateY(-10px);
+}
+
+.fly-in.hidden li:nth-child(5) {
+transform: translateX(-35px) translateY(-100px);
+}
+
+.fly-in.hidden li:nth-child(6) {
+transform: translateX(100px) translateY(35px);
+}
+
+.fly-in.hidden li:nth-child(7) {
+transform: translateX(15px) translateY(100px);
+}
+
+.fly-in.hidden li:nth-child(8) {
+transform: translateX(15px) translateY(-50px);
+}
+
+.fly-in.hidden li:nth-child(9) {
+transform: translateX(50px) translateY(-70px);
+}
+
+.fly-in.hidden li:nth-child(10) {
+transform: translateX(25px) translateY(25px);
+}
+
+.fly-in.hidden li:nth-child(11) {
+transform: translateX(75px) translateY(-85px);
+}
+
+.fly-in.hidden li:nth-child(12) {
+transform: translateX(-105px) translateY(85px);
+}
+
+.fly-in.hidden li:nth-child(13) {
+transform: translateX(10px) translateY(-50px);
+}
+
+.fly-in.hidden li:nth-child(14) {
+transform: translateX(-50px) translateY(-10px);
+}
+
+.fly-in.hidden li:nth-child(15) {
+transform: translateX(-35px) translateY(-100px);
+}
+
+.fly-in.hidden li:nth-child(16) {
+transform: translateX(100px) translateY(35px);
+}
+
+.fly-in.hidden li:nth-child(17) {
+transform: translateX(15px) translateY(100px);
+}
+
+.fly-in.hidden li:nth-child(18) {
+transform: translateX(15px) translateY(-50px);
+}
+
+.fly-in.hidden li:nth-child(19) {
+transform: translateX(50px) translateY(-70px);
+}
+
+/*.fly-in{
     position:relative;
 	text-align: center;
     left: 50%;
@@ -331,7 +435,7 @@
 .fly-in.hidden li:nth-child(19) {
     transform: translateX(100px) translateY(-170px); 
 }
-
+*/
 
 
 	</style>
@@ -690,13 +794,14 @@ var label = group.selectAll("a")
 		  </div>
 
           <p>  
-            <strong>1. </strong> The seller deploys the smart contract via our application with the necessary Ether cost attached to it and sets data on the item’s cost, quantity, etc. The smart contract holds the funds and is documented on the etherscan website for the buyer and seller to monitor. 
+            <strong>1. </strong> The seller deploys the smart contract via our application with the necessary Ether cost attached to it and sets data on the item's cost, quantity, etc. The smart contract holds the funds and is documented on the etherscan website for the buyer and seller to monitor. 
            <br><br><strong>2. </strong>When a buyer is found, they confirm their purchase and deposit two times the transaction amount into the smart contract. With both parties double depositing, they will both bear the same risk if the contract is not completed, creating an equally strong incentive for both parties to complete the transaction. 
-            <br><br><strong>3. </strong>After confirming their purchase, the buyer’s MetaMask account is automatically connected to the smart contract and recognized as the purchaser. The seller then ships the item to the buyer. 
+            <br><br><strong>3. </strong>After confirming their purchase, the buyer's MetaMask account is automatically connected to the smart contract and recognized as the purchaser. The seller then ships the item to the buyer. 
             <br> <br><strong>4. </strong>The Ether will be locked into the contract until the buyer confirms receiving the promised item agreed upon, at which point the buyer will be refunded half of their input into the smart contract (1x the price of the product). Following this transaction, the buyer is removed from the smart contract. 
-            <br> <br><strong>5. </strong>Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller’s profit and their original deposit).
+            <br> <br><strong>5. </strong>Finally, the seller will refund their stored Ether, to receive their whole input, as well as the revenue generated from the transaction (total of 3x the price of the product to account for the seller's profit and their original deposit).
             <p> 
 
+            	<br>
 	<center><h4><b>Contract Execution Logic</b></h4></center>
 	<div class="image-container2">
 		<img src="assets/Simplified.png" alt="Image Description">
@@ -741,7 +846,7 @@ var label = group.selectAll("a")
 		    <li>O</li>
 		</ul>
 		<!-- https://drive.google.com/file/d/1cazNcFcbc39_ZHs1hXDKRiAxpicncJ-w/view?usp=sharing -->
-		<center><iframe src="https://drive.google.com/file/d/1SCoPHUNLUb5O7dgxs5_iW6li4edv7GFX/preview" width="800" height="600"></iframe></center>
+		<center><iframe src="https://drive.google.com/file/d/1cazNcFcbc39_ZHs1hXDKRiAxpicncJ-w/preview" width="800" height="600"></iframe></center>
 		<br>
 		<a href="#top">Back to top</a>
 	</section>
