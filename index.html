@@ -88,8 +88,8 @@
 
 		/* Styling for links within sections */
 		section a {
-			color: #333;
-			text-decoration:underline;
+			color: #063970;
+			/* text-decoration:underline; */
 			font-family: 'Roboto Condensed', sans-serif;
 			/* border-bottom: 2px solid #333;
 			transition: border-bottom 0.3s; */
@@ -428,10 +428,6 @@
 
 		<!-- Create a div where the graph will take place -->
 		<div id="my_dataviz"></div>
-
-		<!-- <div id="my_dataviz_container">
-			<svg id="my_dataviz"></svg>
-		  </div> -->
 		<script>
 
 // 			$(window).load(function() {
@@ -475,7 +471,7 @@ $(window).on('scroll', function() {
 });
 
 			// set the dimensions and margins of the graph
-			var width = 950///780
+			var width = 950//780
 			var height = 700
 			
 			// append the svg object to the body of the page
@@ -486,38 +482,95 @@ $(window).on('scroll', function() {
 			
 			// create dummy data -> just one element per circle
 			// url need to be changed
-			var data = [{ "name": "Remix-Ethereum" ,"url": "https://remix-project.org/"}, 
-						{ "name": "MetaMask Wallet", "url": "https://metamask.io" },
-						{ "name": "Goerli TestNet" ,"url": "https://goerli.net/"},
-						{ "name": "Etherscan.io" , 'url': "https://goerli.etherscan.io/"}, 
-						{ "name": "Javascript" ,"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"},
-						{ "name": "Parse", 'url': "https://parseplatform.org" }]
+			var data = [{ "name": "Remix-Ethereum" ,"url": "https://remix-project.org/","image":"assets/remixlogo.png"}, //assets/map-marker.png
+						{ "name": "MetaMask Wallet", "url": "https://metamask.io","image":"assets/Metamask.png" },
+						{ "name": "Goerli TestNet" ,"url": "https://goerli.net/","image":"assets/goerli.png"},
+						{ "name": "Etherscan.io" , 'url': "https://goerli.etherscan.io/","image":"assets/etherscan.png"}, 
+						{ "name": "Javascript" ,"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript","image":"assets/jslogo.png"},
+						{ "name": "Parse", 'url': "https://parseplatform.org","image":"assets/parse.png" }]
 			
 			// Initialize the circle: all located at the center of the svg area
 			var group = svg.append("g");
+			 
+
+
+	// 		var node = group.selectAll("circle")
+	// 		.data(data)
+	// 		.enter()
+	// 		.append("circle")
+	// 			.attr("r", 100)
+	// 			.attr("cx", width / 2)
+	// 			.attr("cy", height / 2)
+	// 			.style("fill", "#02abec")
+	// 			.style("fill-opacity", 0.3)
+	// 			.attr("stroke", "#02abec")
+	// 			.style("stroke-width", 4);
 			
-			var node = group.selectAll("circle")
-			.data(data)
-			.enter()
-			.append("circle")
-				.attr("r", 100)
-				.attr("cx", width /2)
-				.attr("cy", height / 2)
-				.style("fill", "#02abec")
-				.style("fill-opacity", 0.3)
-				.attr("stroke", "#02abec")
-				.style("stroke-width", 4);
+	// 		var label = group.selectAll("text")
+	// 		.data(data)
+	// 		.enter()
+	// 		.append("text")
+	// 			.attr("text-anchor", "middle")
+	// 			.attr("font-size", "24px")
+	// 			.style("font-weight", "bold")
+	// 			.attr("fill", "black")
+	// 			.text(function(d) { return d.name; });
 			
-			var label = group.selectAll("text")
-			.data(data)
-			.enter()
-			.append("text")
-				.attr("text-anchor", "middle")
-				.attr("font-size", "24px")
-				.style("font-weight", "bold")
-				.attr("fill", "black")
-				.text(function(d) { return d.name; });
-			
+
+
+    //             var images = group.selectAll("image")
+    // .data(data)
+    // .enter()
+    // .append("image")
+    // .attr("xlink:href", function(d) { return d.image; })
+
+    // .attr("x", function(d) { return d3.select(this.parentNode).select("circle").attr("cx") - 50; })
+    // .attr("y", function(d) { return d3.select(this.parentNode).select("circle").attr("cy") - 50; })
+    // .attr("width", 100)
+    // .attr("height", 100);
+
+
+            var defs = group.append("defs");
+var pattern = defs.selectAll("pattern")
+                .data(data)
+                .enter()
+                .append("pattern")
+                    .attr("id", function(d,i) { return "pattern-"+i; })
+                    .attr("height", "100%")
+                    .attr("width", "100%")
+                    .attr("patternContentUnits", "objectBoundingBox")
+                .append("image")
+                    .attr("height", 1)
+                    .attr("width", 1)
+                    .attr("preserveAspectRatio", "none")
+                    .attr("xmlns:xlink", "http://www.w3.org/1999/xlink")
+                    .attr("xlink:href", function(d) { return d.image; });
+
+var node = group.selectAll("circle")
+                .data(data)
+                .enter()
+                .append("a")
+                .attr("xlink:href", function(d) { return d.url; })
+                .append("circle")
+                    .attr("r", 100)
+                    .attr("cx", width / 2)
+                    .attr("cy", height / 2)
+                    .style("fill", function(d,i) { return "url(#pattern-"+i+")"; })
+                    .style("fill-opacity", 0.3)
+                    .attr("stroke", "#02abec")
+                    .style("stroke-width", 4);
+            
+var label = group.selectAll("a")
+                // .data(data)
+                // .enter()
+                .append("text")
+                    .attr("text-anchor", "middle")
+                    .attr("font-size", "18px")
+                    .style("font-weight", "bold")
+                    .attr("fill", "#063970")
+                    .text(function(d) { return d.name; });
+
+    
 			// Add event listeners to the circles
 			node.on("mouseover", function() {
 				d3.select(this)
@@ -557,95 +610,7 @@ $(window).on('scroll', function() {
 					.attr("y", function(d) { return d.y + 5; });
 				});
 
-			// set the dimensions and margins of the graph
-// var width = 475 ;
-// var height = 350;
-
-// // // append the svg object to the body of the page
-// var svg = d3.select("#my_dataviz")
-//   .append("svg")
-//     .attr("width", width)
-//     .attr("height", height);
-// 	// .attr("transform", "translate(" + width*2+")"); // center the group element
-
-// // append the svg object to the body of the page
-// // var svg = d3.select("#my_dataviz")
-// //   .append("svg")
-// //     .attr("width", width * 2) // double the width to center on the page
-// //     .attr("height", height * 2) // double the height to center on the page
-// //     .append("g")
-// //       .attr("transform", "translate(" + width + "," + height + ")"); // center the group element
-
-
-// // create dummy data -> just one element per circle
-// // url need to be changed
-// var data = [{ "name": "Remix-Ethereum" ,"url": "https://remix-project.org/"},             { "name": "MetaMask Wallet", "url": "https://metamask.io" },            { "name": "Goerli TestNet" ,"url": "https://goerli.net/"},            { "name": "Etherscan.io" , 'url': "https://goerli.etherscan.io/"},             { "name": "Javascript" ,"url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"},            { "name": "Parse", 'url': "https://parseplatform.org" }];
-
-// // Initialize the circle: all located at the center of the svg area
-// var group = svg.append("g");
-
-// var node = group.selectAll("circle")
-//   .data(data)
-//   .enter()
-//   .append("circle")
-//     .attr("r", 50)
-//     .attr("cx", width /2)
-//     .attr("cy", height / 2)
-//     .style("fill", "#02abec")
-//     .style("fill-opacity", 0.3)
-//     .attr("stroke", "#02abec")
-//     .style("stroke-width", 2);
-
-// var label = group.selectAll("text")
-//   .data(data)
-//   .enter()
-//   .append("text")
-//     .attr("text-anchor", "middle")
-//     .attr("font-size", "12px")
-//     .style("font-weight", "bold")
-//     .attr("fill", "black")
-//     .text(function(d) { return d.name; });
-
-// // Add event listeners to the circles
-// node.on("mouseover", function() {
-//     d3.select(this)
-//         .transition()
-//         .duration(200)
-//         .attr("r", 60)
-//         .style("fill-opacity", 0.6)
-//         .style("cursor", "pointer");
-//     })
-//     .on("mouseout", function() {
-//     d3.select(this)
-//         .transition()
-//         .duration(200)
-//         .attr("r", 50)
-//         .style("fill-opacity", 0.3)
-//         .style("cursor", "default"); 
-//     });
-// label.on("click", function(d) {
-//     window.open(d.url);
-// })
-
-// // Features of the forces applied to the nodes:
-// var simulation = d3.forceSimulation()
-//     .force("center", d3.forceCenter().x(width / 2).y(height / 2)) // Attraction to the center of the svg area
-//     .force("charge", d3.forceManyBody().strength(0.5)) // Nodes are attracted one each other of value is > 0
-//     .force("collide", d3.forceCollide().strength(.2).radius(55).iterations(1)) // Force that avoids circle overlapping
-// // Apply these forces to the nodes and update their positions.
-// // Once the force algorithm is happy with positions ('alpha' value is low enough), simulations will stop.
-// simulation
-//     .nodes(data)
-//     .on("tick", function(d){
-// 				node
-// 					.attr("cx", function(d){ return d.x; })
-// 					.attr("cy", function(d){ return d.y; });
-// 				label
-// 					.attr("x", function(d) { return d.x; })
-// 					.attr("y", function(d) { return d.y + 5; });
-// 				});
-
-			$(document).ready(function() {
+				$(document).ready(function() {
 				$("#remix-link").click(function() {
 					window.location.href = "https://remix-project.org/" ;//"https://remix.ethereum.org/";
 				});
@@ -676,6 +641,7 @@ $(window).on('scroll', function() {
 					window.location.href = "https://parseplatform.org" ;//"https://remix.ethereum.org/";
 				});
 			});
+
 
 
 			</script>
